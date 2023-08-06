@@ -11,4 +11,6 @@ public interface MaisonService {
     ResponseEntity<String> delete(Long id);
     Maison getById(Long id);
     List<Maison> getAll();
+    List<Maison> getAllByNoms(String noms);
+    List<Maison> getAllByQuartier(String quartier);
 }

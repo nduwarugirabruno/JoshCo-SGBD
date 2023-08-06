@@ -1,10 +1,12 @@
 package com.app.joshco.controller;
 
+import com.app.joshco.model.Enseignant;
 import com.app.joshco.service.EnseignantService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -16,5 +18,40 @@ public class EnseignantController {
     @Autowired
     public EnseignantController(EnseignantService enseignantService) {
         this.enseignantService = enseignantService;
+    }
+    
+    @PostMapping(path = "/create")
+    public ResponseEntity<String> create(@RequestBody Enseignant enseignant) {
+        return enseignantService.create(enseignant);
+    }
+
+    @PutMapping(path = "/update/{id}")
+    public ResponseEntity<String> update(@PathVariable Long id, @RequestBody Enseignant enseignant) {
+        return enseignantService.update(id, enseignant);
+    }
+
+    @DeleteMapping(path = "/delete/{id}")
+    public ResponseEntity<String> delete(@PathVariable Long id) {
+        return enseignantService.delete(id);
+    }
+
+    @GetMapping(path = "/read/{id}")
+    public Enseignant readById(@PathVariable Long id) {
+        return enseignantService.getById(id);
+    }
+
+    @GetMapping(path = "/read")
+    public List<Enseignant> readAll() {
+        return enseignantService.getAll();
+    }
+
+    @GetMapping(path = "/read/age/{age}")
+    public List<Enseignant> readAllByAge(@PathVariable Integer age) {
+        return enseignantService.getAllByAge(age);
+    }
+
+    @GetMapping(path = "/read/names/{names}")
+    public List<Enseignant> readAllByNames(@PathVariable String names) {
+        return enseignantService.getAllByNames(names);
     }
 }
