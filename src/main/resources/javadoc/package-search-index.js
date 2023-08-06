@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.app.joshco"},{"l":"com.app.joshco.controller"},{"l":"com.app.joshco.model"},{"l":"com.app.joshco.repository"},{"l":"com.app.joshco.service"},{"l":"com.app.joshco.service.impl"}];updateSearchResults();

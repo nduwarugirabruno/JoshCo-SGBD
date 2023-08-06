@@ -1,0 +1,49 @@
+<div class="row mt-5">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <!-- Formulaire -->
+        <form (ngSubmit)="submit()" [formGroup]="form">
+
+            <div class="row" style="font-weight: bold; font-size: x-large">
+                <div class="col-1">
+                    <label class="form-check-label" for="login">Login</label>
+                </div>
+                <div class="col-2">
+                    <input class="form-control form-control-sm" formControlName="login" id="login" name="login"
+                           type="text">
+                </div>
+                <div class="col-2">
+                    <label class="form-check-label" for="password">Password</label>
+                </div>
+                <div class="col-2">
+                    <input class="form-control form-control-sm" formControlName="password" id="password" name="password"
+                           type="password">
+                </div>
+                <div class="col-2">
+                    <label class="form-check-label mt-0" for="your-password">Your Password</label>
+                </div>
+                <div class="col-2">
+                    <input class="form-control form-control-sm" formControlName="yourpass" id="your-password" name="your-password"
+                           type="password">
+                </div>
+                <hr class="my-2">
+            </div>
+            <app-loading-popup *ngIf="isLoading" [message]="'Ajout en cours...'"></app-loading-popup>
+
+            <div class="d-flex justify-content-end mb-lg-3">
+                <div *ngIf="errMsg" class="col-sm-6 ml-5" style="color: red; font-size: small;">
+                    {{ errMsg }}
+                </div>
+                <button (click)="back()"
+                        class="btn btn-primary btn-block gradient-custom-2 border border-color-none"
+                        style="height: 50px" type="button"><i class="fas fa-arrow-alt-circle-left me-1"></i>Retour
+                </button>
+                <button [disabled]="form.invalid"
+                        class="btn btn-primary btn-block gradient-custom-2 border border-color-none"
+                        style="height: 50px" type="submit">Créer
+                    <i class="fas fa-add ms-1"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

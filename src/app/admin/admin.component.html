@@ -1,0 +1,100 @@
+<div class="main-container d-flex justify-content-center">
+    <div class="col-sm-10">
+
+        <div *ngIf="!visibility" class="card mb-4 d-flex justify-content-center"
+             style="width: 100%; border-radius: 20px">
+            <div class="card-body">
+
+                <div class="row mt-5">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-10">
+                        <h4 class="sub-title" style="font-weight: bold; font-size: x-large"> Ajouter un nouvel
+                            administrateur
+                            <hr class="mb-2">
+                        </h4>
+                        <div class="row pt-lg-2 mb-3">
+                            <div class="col-2 d-flex justify-content-start">
+                                <h4 class="sub-title" style="font-weight: bold; font-size: x-large"> {{ adminName }}
+                                </h4>
+                            </div>
+                            <div class="col-10 d-flex justify-content-end">
+                                <button (click)="toggleVisibility()"
+                                        class="btn btn-primary btn-block gradient-custom-2 border border-color-none"
+                                        style="height: 50px">Ajouter un admin
+                                    <i class="fas fa-add ms-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div *ngIf="visibility" class="card mb-4 d-flex justify-content-center"
+             style="width: 100%; border-radius: 20px">
+            <div class="card-body">
+                <app-add-admin (visibilityEvent)="toggleVisibility()"></app-add-admin>
+            </div>
+        </div>
+
+        <div class="sub-group">
+            <div class="separator">
+
+                <div class="row mt-5">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-10">
+                        <h4 class="sub-title" style="font-weight: bold; font-size: xx-large"> Option de l'administrateur
+                        </h4>
+                    </div>
+                </div>
+                <div class="my-3 col-sm-10 mx-auto"
+                     style="height: 10px; background-color: black; border-radius: 5px"></div>
+
+            </div>
+
+            <div class="container py-5">
+                <div class="row">
+
+                    <div class="col-sm-3">
+                        <ul class="list-group list-group-flush rounded-3">
+                            <li (click)="toggleSettings(1)"
+                                [class]="settingView == 1 ? 'active' : ''" class="list-group-item d-flex justify-content-between align-items-center p-3 mb-4">
+                                <i class="fab fa-github fa-lg" style="color: #333333;"></i>
+                                <p class="mb-0">Enseignants</p>
+                            </li>
+                            <li (click)="toggleSettings(2)"
+                                [class]="settingView == 2 ? 'active' : ''" class="list-group-item d-flex justify-content-between align-items-center p-3 mb-4">
+                                <i class="fab fa-github fa-lg" style="color: #333333;"></i>
+                                <p class="mb-0">Maison de cours</p>
+                            </li>
+                            <li (click)="toggleSettings(3)"
+                                [class]="settingView == 3 ? 'active' : ''" class="list-group-item d-flex justify-content-between align-items-center p-3 mb-4">
+                                <i class="fab fa-github fa-lg" style="color: #333333;"></i>
+                                <p class="mb-0">Contrats</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-sm-9">
+
+                        <div class="settings">
+                            <div *ngIf="settingView == 0">
+                                <div class="card mb-4" style="height: 600px">
+                                    <h3 class="sub-title"> Choose a setting ! </h3>
+                                </div>
+                            </div>
+                            <div *ngIf="settingView == 1">
+                            </div>
+                            <div *ngIf="settingView == 2">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
