@@ -1,0 +1,132 @@
+<div class="main-container d-flex justify-content-center">
+
+    <section class="h-100 gradient-form" style="width: 100%">
+
+        <div class="container h-40">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-xl-10">
+                    <div class="card rounded-5 my-auto text-black">
+                        <div class="row g-0">
+                            <div class="col-lg-6 d-flex align-items-center gradient-custom-2 rounded-5">
+                                <div class="text-white px-3 py-4 p-md-5 mx-md-4 ">
+                                    <!--Insertion du logo et du nom de la structure-->
+                                    <div class="text-center">
+                                        <img alt="logo"
+                                             src="/assets/images/logo.png" style="width: 185px;">
+                                        <h4 class="mb-5 fst-italic"> Josh and Collaborators </h4>
+                                    </div>
+                                    <!--Carousel pour le defilement du texte-->
+                                    <div class="carousel slide mt-5" data-bs-ride="carousel"
+                                         id="carouselExampleSlidesOnly">
+                                        <div class="carousel-inner text-center">
+                                            <div class="carousel-item active">
+                                                <h4 class="mb-4">Un espace de gestion de tout confort.</h4>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <h4 class="mb-4">Enseignants, contrats et maisons de cours</h4>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <h4 class="mb-4">La plateforme de gestion des différents acteurs de la
+                                                    structure Josh&Co</h4>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <h4 class="mb-4">Retrouvez le profil qui vous intéresse, cela juste en
+                                                    un clic</h4>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <h4 class="mb-4">Ajoutez, supprimez, modifiez et recherchez sans trop de
+                                                    tracas</h4>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <h4 class="mb-4">Juste une chose, connectez vous en tant
+                                                    qu'administrateur</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="card-body p-md-5 mx-md-4">
+
+                                    <!--Titre du formulaire-->
+                                    <div class="text-center">
+                                        <h4 class="my-3 mb-5 pb-1" style="font-size: x-large; font-weight: bolder;">
+                                            Enregistrer un nouvel enseignant</h4>
+                                    </div>
+
+                                    <!-- Formulaire -->
+                                    <form (ngSubmit)="submit()" [formGroup]="form">
+                                        <div class="form-outline mb-3 small">
+                                            <label class="form-label small" for="names">Noms et prénoms</label>
+                                            <input class="form-control form-control-sm" formControlName="names"
+                                                   id="names"
+                                                   name="names"
+                                                   placeholder="Noms et prénoms de l'enseignant"
+                                                   type="text"/>
+                                        </div>
+
+                                        <div class="form-outline mb-3 small">
+                                            <label class="form-label small" for="age">Age</label>
+                                            <input class="custom-number-input form-control form-control-sm"
+                                                   formControlName="age" id="age"
+                                                   name="age"
+                                                   placeholder="Age" type="number"/>
+                                        </div>
+
+                                        <div class="form-outline mb-3 small">
+                                            <label class="form-label small" for="tel">Phone</label>
+                                            <input class="form-control form-control-sm" formControlName="tel" id="tel"
+                                                   name="tel"
+                                                   placeholder="Telephone" type="tel"/>
+                                        </div>
+
+                                        <div class="form-outline mb-3 small">
+                                            <label class="form-label small" for="domicile">Adresse</label>
+                                            <input class="form-control form-control-sm" formControlName="domicile"
+                                                   id="domicile"
+                                                   name="domicile"
+                                                   placeholder="Adresse" type="text"/>
+                                        </div>
+
+                                        <div class="form-outline mb-3 small">
+                                            <label class="form-label small" for="niveau">Niveau académique</label>
+                                            <input class="form-control form-control-sm" formControlName="niveau"
+                                                   id="niveau"
+                                                   name="niveau"
+                                                   placeholder="Niveau académique" type="text"/>
+                                        </div>
+
+                                        <div class="form-outline mb-3 small">
+                                            <label class="form-label small" for="matiere">Matière</label>
+                                            <input class="form-control form-control-sm" formControlName="matiere"
+                                                   id="matiere"
+                                                   name="matiere"
+                                                   placeholder="Matière... NB: Séparées par des virgules."
+                                                   type="text"/>
+                                        </div>
+
+                                        <app-loading-popup *ngIf="isLoading"
+                                                           [message]="'Ajout en cours...'"></app-loading-popup>
+
+                                        <div class="d-flex justify-content-center mx-4 mb-2 mb-lg-3">
+                                            <button [disabled]="form.invalid"
+                                                    class="btn btn-primary btn-block gradient-custom-2 border border-color-none"
+                                                    type="submit">Enregistrer
+                                            </button>
+                                        </div>
+
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</div>
+

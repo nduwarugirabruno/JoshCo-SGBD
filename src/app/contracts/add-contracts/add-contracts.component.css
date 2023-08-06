@@ -1,0 +1,59 @@
+
+input.ng-valid {
+    border-color: rgb(7, 253, 7);
+}
+
+input.ng-invalid.ng-touched {
+    border-color: rgb(250, 8, 8);
+}
+
+.gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #c890fc;
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(0, 144, 255, 0.55), rgba(0, 144, 255, 0.7), rgba(0, 144, 255, 0.85), rgb(0, 144, 255));
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(0, 144, 255, 0.55), rgba(0, 144, 255, 0.7), rgba(0, 144, 255, 0.85), rgb(0, 144, 255));
+}
+
+input.ng-valid {
+    border-color: rgb(7, 253, 7);
+}
+
+input.ng-invalid.ng-touched {
+    border-color: rgb(250, 8, 8);
+}
+
+
+@media (min-width: 768px) {
+    .gradient-form {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2 {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
+
+input, select {
+    border: solid black;
+}
+
+label {
+    margin-bottom: -2%;
+}
+
+
+/*
+
+.custom-number-input::-webkit-inner-spin-button,
+.custom-number-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+*/

@@ -1,0 +1,85 @@
+<div class="main-container d-flex justify-content-center">
+    <div class="col-sm-10">
+
+        <div class="card mb-4 d-flex justify-content-center" style="width: 100%; border-radius: 20px">
+            <div class="card-body">
+
+                <div class="row mt-5">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-10">
+                        <h4 class="sub-title" style="font-weight: bold; font-size: x-large"> Ajouter une nouvelle maison
+                            de cours
+                            <hr class="mb-2">
+                        </h4>
+                        <div class="d-flex justify-content-end mb-lg-3">
+                            <button [routerLink]="['/add-house-tutoring']"
+                                    class="btn btn-primary btn-block gradient-custom-2 border border-color-none"
+                                    style="height: 50px">Ajouter une maison<i
+                                class="fas fa-add ms-1"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="list-group">
+            <div class="separator">
+
+                <div class="row mt-5">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-10">
+                        <h4 class="sub-title" style="font-weight: bold; font-size: xx-large"> Liste des maisons de cours
+                        </h4>
+                    </div>
+                </div>
+                <div class="mb-2 col-sm-10 mx-auto"
+                     style="height: 10px; background-color: black; border-radius: 5px"></div>
+                <br>
+                <div class="row d-flex justify-content-end mb-5">
+                    <div class="col-md-6 form-group d-flex">
+                        <h5 class="search mx-3 mt-2" style="font-size: x-large; font-weight: bolder"> Rechercher </h5>
+                        <input (ngModelChange)="searchedHouse = $event" [ngModel]="searchedHouse"
+                               class="form-control form-control-sm"
+                               style="border: solid black; border-radius: 50px;" type="text">
+                    </div>
+                </div>
+                <br>
+
+            </div>
+
+            <div class="row row-cols-1 row-cols-md-3">
+                <div *ngFor="let maison of searchedMaison" class="col mb-4">
+                    <div class="card h-100" style="border-radius: 20px">
+                        <img
+                            [alt]="maison.id"
+                            [routerLink]="['/house-tutoring', maison.id]" [src]="['assets/ava3.webp']"
+                            [title]="maison.id "
+                            class="card-img-top rounded-circle h-50 w-50 mx-auto my-3"
+                            style="cursor: pointer;"
+                        />
+                        <div class="card-body">
+                            <h5 class="card-title"
+                                style="font-weight: bolder; font-size: large">{{ maison.noms }}</h5>
+                            <p class="card-text" style="font-weight: lighter; font-size: large">
+                                {{ maison.tel }}
+                            </p>
+                            <p class="card-text" style="font-weight: lighter;">
+                                {{ maison.quartier }}
+                            </p>
+                        </div>
+                        <div class="modif d-flex justify-content-end mb-sm-3 mx-sm-3">
+                            <button [routerLink]="['/house-tutoring', maison.id]"
+                                    class="btn btn-primary btn-block gradient-custom-2 border border-color-none"
+                                    id="look" style="border-radius: 15px">En savoir
+                                plus <i class="fas fa-long-arrow-alt-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

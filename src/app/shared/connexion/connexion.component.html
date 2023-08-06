@@ -1,0 +1,101 @@
+<div class="main-container d-flex justify-content-center">
+
+    <section class="h-50 gradient-form">
+        <div class="container h-40">
+            <div class="row d-flex justify-content-center align-items-center h-50">
+                <div class="col-xl-10">
+                    <div class="card rounded-5 text-black my-3">
+                        <div class="row g-0">
+                            <div class="col-lg-6 d-flex align-items-center gradient-custom-2 rounded-5">
+                                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                                    <!--Insertion du texte defilant-->
+                                    <div class="carousel slide" data-bs-ride="carousel" id="carouselExampleSlidesOnly">
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <h4 class="mb-4">Un espace de gestion de tout confort.</h4>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <h4 class="mb-4">Enseignants, contrats et maisons de cours</h4>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <h4 class="mb-4">La plateforme de gestion des différents acteurs de la
+                                                    structure Josh&Co</h4>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <h4 class="mb-4">Retrouvez le profil qui vous intéresse, cela juste en
+                                                    un clic</h4>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <h4 class="mb-4">Ajoutez, supprimez, modifiez et recherchez sans trop de
+                                                    tracas</h4>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <h4 class="mb-4">Juste une chose, connectez vous en tant
+                                                    qu'administrateur</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="card-body p-md-5 mx-md-4">
+
+                                    <!--Insertion du logo et du nom de l'application-->
+                                    <div class="text-center">
+                                        <img alt="logo"
+                                             src="assets/images/logo.png" style="width: 185px;">
+                                        <h4 class="mb-5 pb-1">Authentification</h4>
+                                    </div>
+
+                                    <!--Formulaire-->
+                                    <form (ngSubmit)="submit()" [formGroup]="form">
+
+                                        <div class="form-outline mb-1 small mb-4">
+                                            <label for="login">Login</label>
+                                            <input class="form-control form-control-sm" formControlName="login" id="login"
+                                                   placeholder="Login" type="text"/>
+                                        </div>
+
+                                        <!--Zone de saisie du mot de passe avec affichage et masquage-->
+                                        <div class="form-outline mb-1 small mb-5">
+                                            <label for="password">Password</label>
+                                            <div class="input-group">
+                                                <input [placeholder]="!isPasswordVisible ? '********' : 'Password'" [type]="isPasswordVisible ? 'texte' : 'password'"
+                                                       class="form-control form-control-sm"
+                                                       formControlName="password"
+                                                       id="password">
+                                                <div class="input-group-append">
+                                                    <button (click)="togglePasswordVisibility()" class="btn btn-outline-primary btn-sm"
+                                                            style="border: solid black;"
+                                                            type="button">
+                                                        <span *ngIf="isPasswordVisible"><i aria-hidden="true"
+                                                                                           class="fas fa-eye-slash"></i></span>
+                                                        <span *ngIf="!isPasswordVisible"><i aria-hidden="true"
+                                                                                            class="fas fa-eye"></i></span>
+                                                        <!--                                                        <i [class]="isPasswordVisible ? 'fas fa-eye-slash' : 'fas fa-eye'" aria-hidden="true"></i>-->
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <p *ngIf="errMsg" style="color: red; font-size: small; ">{{ errMsg }}</p>
+                                        </div>
+
+                                        <div class="d-flex justify-content-center mx-4 mb-4 mb-lg-4">
+                                            <button [disabled]="form.invalid"
+                                                    class="btn btn-primary btn-block gradient-custom-2 border border-color-none"
+                                                    type="submit">Connexion
+                                            </button>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>

@@ -1,0 +1,59 @@
+<div class="main-container d-flex justify-content-center">
+    <section style="width: 90%;"> <!--  style="background-color: #eee;" -->
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                            <!-- <img src=" {{ (maison)?.photo }}" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;"> -->
+                            <img alt="avatar" class="rounded-circle img-fluid" src="assets/ava3.webp"
+                                 style="width: 150px;">
+                            <h5 class="my-3" style="font-weight: bold; font-size: large">{{ maison?.noms }}</h5>
+                            <p class="text-muted mb-1" style="font-weight: lighter;">{{ maison?.tel }}</p>
+                            <div class="d-flex justify-content-center my-3">
+                                <button [routerLink]="['/house-tutoring']" class="btn btn-primary" type="button">Retour
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="card mb-4 py-4 d-flex justify-content-center h-100">
+                        <div class="card-bod my-auto">
+                            <div class="col-lg-10 mx-auto">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Full Name</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">{{ maison?.noms }}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Phone</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">{{ maison?.tel }}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Address</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">{{ maison?.quartier }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</div>

@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+/*@import "material-icons/iconfont/material-icons.css";*/
+/*@import "~font-awesome/css/font-awesome.min.css";*/
+
+
+body {
+    background: #ffcd9bbb url('assets/images/background.jpg') no-repeat fixed;
+    background-size: cover;
+    backdrop-filter: blur(20px);
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.root {
+    /*background-color: #fdfdfd1c;*/
+}
+
+/*
+
+ You can add global styles to this file, and also import other style files
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+*/
