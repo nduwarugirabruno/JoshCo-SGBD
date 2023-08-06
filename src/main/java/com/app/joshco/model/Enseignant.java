@@ -15,16 +15,25 @@ public class Enseignant {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
 	@Column(nullable = false, name = "names", length = 100)
 	private String names;
+
 	@Column(nullable = false, name = "age", length = 7)
 	private Integer age;
+
 	@Column(nullable = false, name = "tel", length = 15)
 	private Long tel;
+
 	@Column(nullable = false, name = "domicile", length = 50)
 	private String domicile;
+
 	@Column(nullable = false, name = "niveau", length = 50)
 	private String niveau;
+
+	@Column(nullable = false, name = "state")
+	private Boolean state;
+
 	@ElementCollection
 	@CollectionTable
 	@Column(nullable = false, name = "matiere")
@@ -43,56 +52,32 @@ public class Enseignant {
 		this.matiere = matiere;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getNames() {
-		return names;
 	}
 
 	public void setNames(String names) {
 		this.names = names;
 	}
 
-	public Integer getAge() {
-		return age;
-	}
-
 	public void setAge(Integer age) {
 		this.age = age;
-	}
-
-	public Long getTel() {
-		return tel;
 	}
 
 	public void setTel(Long tel) {
 		this.tel = tel;
 	}
 
-	public String getDomicile() {
-		return domicile;
-	}
-
 	public void setDomicile(String domicile) {
 		this.domicile = domicile;
-	}
-
-	public String getNiveau() {
-		return niveau;
 	}
 
 	public void setNiveau(String niveau) {
 		this.niveau = niveau;
 	}
 
-	public List<String> getMatiere() {
-		return matiere;
+	public void setState(Boolean state) {
+		this.state = state;
 	}
 
 	public void setMatiere(List<String> matiere) {
