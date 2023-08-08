@@ -66,7 +66,7 @@ export class AddContractsComponent implements OnInit {
                 id: 0,
                 state: false,
                 enseignant: this.listEnseignant.find(e => e.id == Number(this.form.value.enseignant)),
-                maison: this.listMaison.find(e => Number(this.form.value.maison)),
+                maison: this.listMaison.find(m => m.id == Number(this.form.value.maison)),
                 matiere: (((this.form.value.matiere).replace(';', ',')).replace(' ', '')).split(','),
                 montant: Number(this.form.value.montant)
             }

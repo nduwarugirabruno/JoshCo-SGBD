@@ -1,21 +1,31 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {AddAdminComponent} from './add-admin/add-admin.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TeachersModule} from "../teachers/teachers.module";
+import { AdminTeacherComponent } from './admin-teacher/admin-teacher.component';
+import { AdminHouseTutoringComponent } from './admin-house-tutoring/admin-house-tutoring.component';
+import { AdminContractComponent } from './admin-contract/admin-contract.component';
 
 
 @NgModule({
     declarations: [
-        AddAdminComponent
+        AddAdminComponent,
+        AdminTeacherComponent,
+        AdminHouseTutoringComponent,
+        AdminContractComponent
     ],
     imports: [
         CommonModule,
         ReactiveFormsModule,
-        TeachersModule
+        TeachersModule,
+        FormsModule
     ],
     exports: [
-        AddAdminComponent
+        AddAdminComponent,
+        AdminTeacherComponent,
+        AdminHouseTutoringComponent,
+        AdminContractComponent
     ]
 
 })
