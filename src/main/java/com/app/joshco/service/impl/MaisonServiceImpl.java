@@ -1,6 +1,8 @@
 package com.app.joshco.service.impl;
 
+import com.app.joshco.model.Contrat;
 import com.app.joshco.model.Maison;
+import com.app.joshco.repository.ContratRepository;
 import com.app.joshco.repository.MaisonRepository;
 import com.app.joshco.service.MaisonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +18,12 @@ import java.util.Optional;
 public class MaisonServiceImpl implements MaisonService {
 
     private final MaisonRepository maisonRepository;
+    private final ContratRepository contratRepository;
 
     @Autowired
-    public MaisonServiceImpl(MaisonRepository maisonRepository) {
+    public MaisonServiceImpl(MaisonRepository maisonRepository, ContratRepository contratRepository) {
         this.maisonRepository = maisonRepository;
+        this.contratRepository = contratRepository;
     }
 
     /**
@@ -69,13 +73,13 @@ public class MaisonServiceImpl implements MaisonService {
                 return new ResponseEntity<>(
                         "Maison not found",
                         HttpStatus.OK);
-            if (maison.getNoms() != null || !use.get().getNoms().equals(maison.getNoms()))
+            if (maison.getNoms() != null && !use.get().getNoms().equals(maison.getNoms()))
                 use.get().setNoms(maison.getNoms());
 
-            if (maison.getTel() != null || !use.get().getTel().equals(maison.getTel()))
+            if (maison.getTel() != null && !use.get().getTel().equals(maison.getTel()))
                 use.get().setTel(maison.getTel());
 
-            if (maison.getQuartier() != null || !use.get().getQuartier().equals(maison.getQuartier()))
+            if (maison.getQuartier() != null && !use.get().getQuartier().equals(maison.getQuartier()))
                 use.get().setQuartier(maison.getQuartier());
 
             Maison maison1 = maisonRepository.saveAndFlush(use.get());
@@ -148,5 +152,19 @@ public class MaisonServiceImpl implements MaisonService {
     @Override
     public List<Maison> getAllByQuartier(String quartier) {
         return maisonRepository.findByQuartier(quartier);
+    }
+
+    /**
+     * @param id the identifiant of the house to get all contracts
+     * @return all the house's contract
+     */
+    @Override
+    public List<Contrat> getAllContract(Long id) {
+        List<Contrat> contratList = new ArrayList<>();
+        contratRepository.findAll().forEach(contrat -> {
+            if (contrat.getMaison().getId() == id)
+                contratList.add(contrat);
+        });
+        return contratList;
     }
 }

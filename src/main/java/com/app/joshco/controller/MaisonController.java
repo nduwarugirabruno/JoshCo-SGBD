@@ -1,5 +1,6 @@
 package com.app.joshco.controller;
 
+import com.app.joshco.model.Contrat;
 import com.app.joshco.model.Maison;
 import com.app.joshco.service.MaisonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,5 +54,10 @@ public class MaisonController {
     @GetMapping(path = "/read/quartier/{quartier}")
     public List<Maison> readAllByQuartier(@PathVariable String quartier) {
         return maisonService.getAllByQuartier(quartier);
+    }
+
+    @GetMapping(path = "/read/contract/{id}")
+    public List<Contrat> readContract(@PathVariable Long id) {
+        return maisonService.getAllContract(id);
     }
 }

@@ -1,5 +1,6 @@
 package com.app.joshco.controller;
 
+import com.app.joshco.model.Contrat;
 import com.app.joshco.model.Enseignant;
 import com.app.joshco.service.EnseignantService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,5 +54,10 @@ public class EnseignantController {
     @GetMapping(path = "/read/names/{names}")
     public List<Enseignant> readAllByNames(@PathVariable String names) {
         return enseignantService.getAllByNames(names);
+    }
+
+    @GetMapping(path = "/read/contract/{id}")
+    public List<Contrat> readContract(@PathVariable Long id) {
+        return enseignantService.getAllContrat(id);
     }
 }

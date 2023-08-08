@@ -1,6 +1,8 @@
 package com.app.joshco.service.impl;
 
+import com.app.joshco.model.Contrat;
 import com.app.joshco.model.Enseignant;
+import com.app.joshco.repository.ContratRepository;
 import com.app.joshco.repository.EnseignantRepository;
 import com.app.joshco.service.EnseignantService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +18,12 @@ import java.util.Optional;
 public class EnseignantServiceImpl implements EnseignantService {
 
     private final EnseignantRepository enseignantRepository;
+    private final ContratRepository contratRepository;
 
     @Autowired
-    public EnseignantServiceImpl(EnseignantRepository enseignantRepository) {
+    public EnseignantServiceImpl(EnseignantRepository enseignantRepository, ContratRepository contratRepository) {
         this.enseignantRepository = enseignantRepository;
+        this.contratRepository = contratRepository;
     }
 
     /**
@@ -173,5 +177,19 @@ public class EnseignantServiceImpl implements EnseignantService {
     @Override
     public List<Enseignant> getAllByNames(String name) {
         return enseignantRepository.findByNames(name);
+    }
+
+    /**
+     * @param id the identifiant of the teacher to get all contracts
+     * @return all the teacher's contract
+     */
+    @Override
+    public List<Contrat> getAllContrat(Long id) {
+        List<Contrat> contratList = new ArrayList<>();
+        contratRepository.findAll().forEach(contrat -> {
+            if (contrat.getEnseignant().getId() == id)
+                contratList.add(contrat);
+        });
+        return contratList;
     }
 }

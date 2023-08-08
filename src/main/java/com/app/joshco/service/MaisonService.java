@@ -1,5 +1,6 @@
 package com.app.joshco.service;
 
+import com.app.joshco.model.Contrat;
 import com.app.joshco.model.Maison;
 import org.springframework.http.ResponseEntity;
 
@@ -13,4 +14,5 @@ public interface MaisonService {
     List<Maison> getAll();
     List<Maison> getAllByNoms(String noms);
     List<Maison> getAllByQuartier(String quartier);
+    List<Contrat> getAllContract(Long id);
 }

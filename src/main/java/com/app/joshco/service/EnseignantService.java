@@ -1,5 +1,6 @@
 package com.app.joshco.service;
 
+import com.app.joshco.model.Contrat;
 import com.app.joshco.model.Enseignant;
 import org.springframework.http.ResponseEntity;
 
@@ -14,5 +15,6 @@ public interface EnseignantService {
     List<Enseignant> getAll();
     List<Enseignant> getAllByAge(Integer age);
     List<Enseignant> getAllByNames(String name);
+    List<Contrat> getAllContrat(Long id);
 
 }
