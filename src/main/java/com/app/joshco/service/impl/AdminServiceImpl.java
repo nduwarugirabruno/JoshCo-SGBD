@@ -113,4 +113,27 @@ public class AdminServiceImpl implements AdminService {
         });
         return list;
     }
+
+    /**
+     * @return the deactivated admin's List
+     */
+    @Override
+    public List<Admin> getAllDeactivated() {
+        List<Admin> list = new ArrayList<>();
+        adminRepository.findAll().forEach(admin -> {
+            if (!admin.getState())
+                list.add(admin);
+        });
+        return list;
+    }
+
+    /**
+     * @return the admin corresponding to the login
+     */
+    @Override
+    public Admin getByLogin(String login) {
+        System.out.println(adminRepository.findAll());
+        for (Admin a : adminRepository.findAll()) if (a.getLogin().equals(login)) return a;
+        return null;
+    }
 }

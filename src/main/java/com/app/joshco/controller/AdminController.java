@@ -39,4 +39,14 @@ public class AdminController {
     public List<Admin> readAll() {
         return adminService.getAll();
     }
+
+    @GetMapping(path = "/read/login/{login}")
+    public Admin readByLogin(@PathVariable String login) {
+        return adminService.getByLogin(login);
+    }
+
+    @GetMapping(path = "/read/deactivated")
+    public List<Admin> readAllDeactivated() {
+        return adminService.getAllDeactivated();
+    }
 }

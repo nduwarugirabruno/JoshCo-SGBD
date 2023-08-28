@@ -11,4 +11,5 @@ public interface ContratService {
     ResponseEntity<String> delete(Long id);
     Contrat getById(Long id);
     List<Contrat> getAll();
+    List<Contrat> getAllDeactivated();
 }

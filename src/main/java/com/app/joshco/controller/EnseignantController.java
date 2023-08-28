@@ -56,8 +56,13 @@ public class EnseignantController {
         return enseignantService.getAllByNames(names);
     }
 
+    @GetMapping(path = "/read/deactivated")
+    public List<Enseignant> readAllDeactivated() {
+        return enseignantService.getAllDeactivated();
+    }
+
     @GetMapping(path = "/read/contract/{id}")
-    public List<Contrat> readContract(@PathVariable Long id) {
+    public List<Contrat> readContracts(@PathVariable Long id) {
         return enseignantService.getAllContrat(id);
     }
 }

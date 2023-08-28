@@ -180,6 +180,19 @@ public class EnseignantServiceImpl implements EnseignantService {
     }
 
     /**
+     * @return the deactivated teacher's List
+     */
+    @Override
+    public List<Enseignant> getAllDeactivated() {
+        List<Enseignant> list = new ArrayList<>();
+        enseignantRepository.findAll().forEach(enseignant -> {
+            if (!enseignant.getState())
+                list.add(enseignant);
+        });
+        return list;
+    }
+
+    /**
      * @param id the identifiant of the teacher to get all contracts
      * @return all the teacher's contract
      */

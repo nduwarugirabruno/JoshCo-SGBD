@@ -44,4 +44,9 @@ public class ContratController {
     public List<Contrat> readAll() {
         return contratService.getAll();
     }
+
+    @GetMapping(path = "/read/deactivated")
+    public List<Contrat> readAllDeactivated() {
+        return contratService.getAllDeactivated();
+    }
 }

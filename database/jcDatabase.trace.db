@@ -150,3 +150,7 @@ java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supporte
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-08-06 13:18:38 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Valeur trop longue pour la colonne "PASSWORD CHARACTER VARYING(15)": "'123Link''s@gmail.com' (19)"
+Value too long for column "PASSWORD CHARACTER VARYING(15)": "'123Link''s@gmail.com' (19)"; SQL statement:
+insert into admin (id, login, password, state) values (default, ?, ?, ?) [22001-214]

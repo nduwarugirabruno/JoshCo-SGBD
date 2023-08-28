@@ -14,5 +14,6 @@ public interface MaisonService {
     List<Maison> getAll();
     List<Maison> getAllByNoms(String noms);
     List<Maison> getAllByQuartier(String quartier);
+    List<Maison> getAllDeactivated();
     List<Contrat> getAllContract(Long id);
 }

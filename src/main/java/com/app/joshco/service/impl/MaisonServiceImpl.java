@@ -155,6 +155,19 @@ public class MaisonServiceImpl implements MaisonService {
     }
 
     /**
+     * @return the deactivated house's List
+     */
+    @Override
+    public List<Maison> getAllDeactivated() {
+        List<Maison> list = new ArrayList<>();
+        maisonRepository.findAll().forEach(maison -> {
+            if (!maison.getState())
+                list.add(maison);
+        });
+        return list;
+    }
+
+    /**
      * @param id the identifiant of the house to get all contracts
      * @return all the house's contract
      */

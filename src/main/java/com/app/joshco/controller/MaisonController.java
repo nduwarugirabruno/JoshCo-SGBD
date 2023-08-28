@@ -56,8 +56,13 @@ public class MaisonController {
         return maisonService.getAllByQuartier(quartier);
     }
 
+    @GetMapping(path = "/read/deactivated")
+    public List<Maison> readAllDeactivated() {
+        return maisonService.getAllDeactivated();
+    }
+
     @GetMapping(path = "/read/contract/{id}")
-    public List<Contrat> readContract(@PathVariable Long id) {
+    public List<Contrat> readContracts(@PathVariable Long id) {
         return maisonService.getAllContract(id);
     }
 }

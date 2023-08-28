@@ -15,6 +15,7 @@ public interface EnseignantService {
     List<Enseignant> getAll();
     List<Enseignant> getAllByAge(Integer age);
     List<Enseignant> getAllByNames(String name);
+    List<Enseignant> getAllDeactivated();
     List<Contrat> getAllContrat(Long id);
 
 }

@@ -148,4 +148,17 @@ public class ContratServiceImpl implements ContratService {
         });
         return list;
     }
+
+    /**
+     * @return the deactivated contract's List
+     */
+    @Override
+    public List<Contrat> getAllDeactivated() {
+        List<Contrat> list = new ArrayList<>();
+        contratRepository.findAll().forEach(contrat -> {
+            if (!contrat.getState())
+                list.add(contrat);
+        });
+        return list;
+    }
 }

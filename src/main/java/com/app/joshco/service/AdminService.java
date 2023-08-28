@@ -10,4 +10,6 @@ public interface AdminService {
     ResponseEntity<String> update(Long id, Admin admin);
     ResponseEntity<String> delete(Long id);
     List<Admin> getAll();
+    List<Admin> getAllDeactivated();
+    Admin getByLogin(String login);
 }
